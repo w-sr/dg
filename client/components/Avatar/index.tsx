@@ -1,0 +1,16 @@
+import { ReactNode } from "react";
+
+type IAvatarProps = {
+  name?: string;
+  job?: ReactNode;
+};
+
+const Avatar = ({ name, job }: IAvatarProps) => (
+  <div className="flex flex-col items-center">
+    <div className="w-20 h-20 border-none bg-gray-200 rounded-full mb-2"></div>
+    {name && <div className="text-md font-bold mb-1">{name}</div>}
+    {job && <div className="text-xs text-gray-400">{job}</div>}
+  </div>
+);
+
+export { Avatar };

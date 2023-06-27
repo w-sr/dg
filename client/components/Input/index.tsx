@@ -1,4 +1,4 @@
-import { IFormInput } from "components/FormModal/FormModal.types";
+import { IFormInput } from "types/form";
 import { Path, UseFormRegister, FieldError } from "react-hook-form";
 
 type InputProps = {

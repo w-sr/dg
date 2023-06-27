@@ -1,5 +1,7 @@
+import { ChartCart } from "components/ChartCard";
 import { FormModal } from "components/FormModal";
 import { MainLayout } from "components/MainLayout";
+import { PerformanceCard } from "components/PerformanceCard";
 import Head from "next/head";
 import { useState } from "react";
 
@@ -17,8 +19,14 @@ export default function Dashboard() {
       </Head>
       <MainLayout>
         <button onClick={handleClick}>On Click</button>
-        <div className="flex flex-col">
-          <div className="w-full h-36 p-8 rounded-2xl bg-copper opacity-70"></div>
+        <div className="grid grid-cols-3 gap-4">
+          <div>
+            <PerformanceCard />
+          </div>
+          <div className="col-span-2">
+            <ChartCart />
+          </div>
+          <div className="w-full col-span-3 h-36 p-8 rounded-2xl bg-copper opacity-70"></div>
         </div>
       </MainLayout>
       <FormModal isOpen={showDialog} closeModal={() => setShowDialog(false)} />

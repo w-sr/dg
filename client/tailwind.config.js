@@ -13,6 +13,7 @@ module.exports = {
       },
       colors: {
         copper: "#B87333",
+        sky: "#52D3ED",
       },
     },
   },

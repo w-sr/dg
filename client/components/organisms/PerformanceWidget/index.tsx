@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
-const PerformanceCard = () => {
+const PerformanceWidget = () => {
   return (
     <div className="w-full p-8 rounded-2xl bg-gray-900 text-white">
       <div className="flex justify-between items-center">
@@ -61,4 +61,4 @@ const PerformanceCard = () => {
   );
 };
 
-export { PerformanceCard };
+export { PerformanceWidget };

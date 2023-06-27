@@ -1,4 +1,4 @@
-import { Input } from "components/Input";
+import { Input } from "components/atoms/Input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Modal from "react-modal";
 import { IFormInput } from "types/form";

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import { MainLayout } from "components/MainLayout";
+import { MainLayout } from "components/organisms/MainLayout";
 
 const Index = () => {
   const router = useRouter();

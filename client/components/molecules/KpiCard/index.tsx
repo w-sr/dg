@@ -8,7 +8,7 @@ type KpiCardProps = {
 
 const KpiCard = ({ kpi }: KpiCardProps) =>
   kpi ? (
-    <div className="relative w-60 h-60 m-4 flex flex-col capitalize justify-around bg-white rounded-3xl p-6">
+    <div className="relative w-52 h-52 m-4 flex flex-col capitalize justify-around bg-white rounded-3xl p-6">
       <div className="absolute w-16 h-16 -top-8 flex justify-center items-center rounded-xl bg-brown">
         <FontAwesomeIcon icon={faCircleHalfStroke} color="white" size="xl" />
       </div>
@@ -16,7 +16,7 @@ const KpiCard = ({ kpi }: KpiCardProps) =>
       <span className="text-2xl font-bold">{kpi.value}</span>
     </div>
   ) : (
-    <div className="w-60 h-60 m-4 capitalize bg-white rounded-3xl p-6">
+    <div className="w-52 h-52 m-4 capitalize bg-white rounded-3xl p-6">
       <span className="text-xl font-bold">Your New Metrics</span>
     </div>
   );

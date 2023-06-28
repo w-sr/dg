@@ -19,10 +19,10 @@ export class KpisController {
   @Get()
   async findAll(@Res() response) {
     try {
-      const kpiData = await this.kpisService.findAll();
+      const kpis = await this.kpisService.findAll();
       return response.status(HttpStatus.OK).json({
         message: 'All kpis data found successfully',
-        kpiData,
+        kpis,
       });
     } catch (err) {
       return response.status(err.status).json(err.response);
@@ -35,7 +35,7 @@ export class KpisController {
       const newKpi = await this.kpisService.create(createKpiDto);
       return response.status(HttpStatus.CREATED).json({
         message: 'Kpi has been created successfully',
-        newKpi,
+        kpi: newKpi,
       });
     } catch (err) {
       return response.status(HttpStatus.BAD_REQUEST).json({
@@ -56,7 +56,7 @@ export class KpisController {
       const existingKpi = await this.kpisService.update(updateKpiDto, id);
       return response.status(HttpStatus.OK).json({
         message: 'Kpi has been successfully updated',
-        existingKpi,
+        kpi: existingKpi,
       });
     } catch (err) {
       return response.status(err.status).json(err.response);
@@ -69,7 +69,7 @@ export class KpisController {
       const existingKpi = await this.kpisService.get(id);
       return response.status(HttpStatus.OK).json({
         message: 'Kpi found successfully',
-        existingKpi,
+        kpi: existingKpi,
       });
     } catch (err) {
       return response.status(err.status).json(err.response);
@@ -82,7 +82,7 @@ export class KpisController {
       const deletedKpi = await this.kpisService.delete(id);
       return response.status(HttpStatus.OK).json({
         message: 'Kpi deleted successfully',
-        deletedKpi,
+        kpi: deletedKpi,
       });
     } catch (err) {
       return response.status(err.status).json(err.response);

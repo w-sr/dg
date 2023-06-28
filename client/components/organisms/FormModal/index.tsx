@@ -1,9 +1,12 @@
-import { Input } from "components/atoms/Input";
-import { useForm, SubmitHandler } from "react-hook-form";
-import Modal from "react-modal";
-import { IFormInput } from "types/form";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Input } from "components/atoms/Input";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import Modal from "react-modal";
+import { Kpi } from "types/kpi";
+
+Modal.setAppElement("#__next");
 
 const customStyles = {
   content: {
@@ -18,19 +21,42 @@ const customStyles = {
 };
 
 interface IFormModalProps {
+  kpi?: Kpi;
   isOpen: boolean;
   closeModal: () => void;
+  submitModal: (data: Kpi) => void;
+  deleteModal: (id?: string) => void;
 }
 
-const FormModal = ({ isOpen, closeModal }: IFormModalProps) => {
+const FormModal = ({
+  kpi,
+  isOpen,
+  closeModal,
+  submitModal,
+  deleteModal,
+}: IFormModalProps) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<IFormInput>();
+  } = useForm<Kpi>();
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  useEffect(() => {
+    if (kpi) {
+      reset({
+        name: kpi.name,
+        value: kpi.value,
+        description: kpi.description,
+      });
+    } else {
+      reset({
+        name: "",
+        value: "",
+        description: "",
+      });
+    }
+  }, [kpi]);
 
   const onClose = () => {
     reset();
@@ -44,7 +70,7 @@ const FormModal = ({ isOpen, closeModal }: IFormModalProps) => {
       style={customStyles}
       shouldCloseOnOverlayClick={false}
     >
-      <div className="flex justify-end">
+      <div className="flex justify-end mb-2">
         <FontAwesomeIcon
           icon={faClose}
           className="cursor-pointer"
@@ -53,7 +79,7 @@ const FormModal = ({ isOpen, closeModal }: IFormModalProps) => {
         />
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(submitModal)}>
         <div className="py-2">
           <Input
             label="name"
@@ -78,12 +104,23 @@ const FormModal = ({ isOpen, closeModal }: IFormModalProps) => {
             required
           />
         </div>
-        <button
-          type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Submit
-        </button>
+        <div className="flex justify-between mt-2">
+          {kpi && (
+            <button
+              type="button"
+              onClick={() => deleteModal(kpi?._id)}
+              className="text-white bg-brown focus:outline-none rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            >
+              Delete
+            </button>
+          )}
+          <button
+            type="submit"
+            className="text-white bg-brown focus:outline-none rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+          >
+            {kpi ? "Update" : "Create"}
+          </button>
+        </div>
       </form>
     </Modal>
   );

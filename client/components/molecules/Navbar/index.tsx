@@ -7,10 +7,12 @@ import Link from "next/link";
 
 const Navbar = () => (
   <>
-    <Link href="/">
+    <Link href="/" className="my-8">
       <Logo />
     </Link>
-    <Avatar name="Jonathan Roy" job="CEO" />
+    <div className="my-20">
+      <Avatar name="Jonathan Roy" job="CEO" />
+    </div>
     <nav className="w-full">
       <ul className="flex flex-col flex-wrap text-md">
         <li>

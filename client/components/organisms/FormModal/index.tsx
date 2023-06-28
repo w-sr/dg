@@ -82,7 +82,8 @@ const FormModal = ({
       <form onSubmit={handleSubmit(submitModal)}>
         <div className="py-2">
           <Input
-            label="name"
+            label="Name"
+            name="name"
             register={register}
             error={errors.name}
             required
@@ -90,7 +91,8 @@ const FormModal = ({
         </div>
         <div className="py-2">
           <Input
-            label="description"
+            label="Description"
+            name="description"
             register={register}
             error={errors.description}
             required
@@ -98,7 +100,8 @@ const FormModal = ({
         </div>
         <div className="py-2">
           <Input
-            label="value"
+            label="Value"
+            name="value"
             register={register}
             error={errors.value}
             required

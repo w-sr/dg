@@ -6,6 +6,7 @@ import { PerformanceWidget } from "components/organisms/PerformanceWidget";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { SubmitHandler } from "react-hook-form";
+import { toast } from "react-toastify";
 import { Kpi } from "types/kpi";
 import { createKpi, deleteKpi, fetchKpis, updateKpi } from "../services/api";
 
@@ -21,7 +22,7 @@ export default function Dashboard() {
         const res = await fetchKpis();
         setKpis(res);
       } catch (error) {
-        console.log(error);
+        toast((error as Error).message);
       }
     };
 
@@ -55,7 +56,7 @@ export default function Dashboard() {
 
       onModalClose();
     } catch (error) {
-      console.log(error);
+      toast((error as Error).message);
     }
   };
 
@@ -68,7 +69,7 @@ export default function Dashboard() {
       setKpis(temp);
       onModalClose();
     } catch (error) {
-      console.log(error);
+      toast((error as Error).message);
     }
   };
 

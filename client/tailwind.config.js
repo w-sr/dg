@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         copper: "#D4BBA5",
         sky: "#52D3ED",
+        brown: "#fc6112",
       },
     },
   },

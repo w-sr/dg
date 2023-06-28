@@ -1,15 +1,14 @@
-import { useRouter } from "next/router";
-
-import { MainLayout } from "components/organisms/MainLayout";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const Index = () => {
-  const router = useRouter();
+  const { push } = useRouter();
 
-  return (
-    <MainLayout>
-      <div></div>
-    </MainLayout>
-  );
+  useEffect(() => {
+    push("/dashboard");
+  }, []);
+
+  return <div></div>;
 };
 
 export default Index;

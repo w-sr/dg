@@ -1,16 +1,16 @@
-import { IFormInput } from "types/form";
+import { Kpi } from "types/kpi";
 import { Path, UseFormRegister, FieldError } from "react-hook-form";
 
 type InputProps = {
-  label: Path<IFormInput>;
-  register: UseFormRegister<IFormInput>;
+  label: Path<Kpi>;
+  register: UseFormRegister<Kpi>;
   required: boolean;
   error?: FieldError;
 };
 
 const Input = ({ label, register, required, error }: InputProps) => (
   <>
-    <label className="block text-sm text-gray-900">{label}</label>
+    <label className="block text-sm text-gray-900 mb-2">{label}</label>
     <input
       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400"
       {...register(label, { required })}

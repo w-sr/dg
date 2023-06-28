@@ -1,10 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString, MinLength } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class KpiDto {
   @IsString()
   @IsNotEmpty()
-  @MinLength(5)
   @ApiProperty()
   name: string;
 

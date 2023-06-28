@@ -28,7 +28,7 @@ const ChartWidget = () => {
     labels: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
     datasets: [
       {
-        label: "First dataset",
+        label: "Kpis",
         data: [234, 345, 321, 412, 435, 543, 300],
         fill: "start",
         backgroundColor: (context: ScriptableContext<"line">) => {
